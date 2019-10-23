@@ -1,7 +1,7 @@
 package com.alejandrorios.condorsports.adapters
 
 import android.graphics.drawable.Drawable
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class EventsListAdapter(private var eventsList: List<EventsData>) :
-    RecyclerView.Adapter<EventsListAdapter.EventHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<EventsListAdapter.EventHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {
@@ -33,7 +33,7 @@ class EventsListAdapter(private var eventsList: List<EventsData>) :
         holder.bindData(eventsList[position])
     }
 
-    inner class EventHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class EventHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         private var date = Date()
         private val sf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
 

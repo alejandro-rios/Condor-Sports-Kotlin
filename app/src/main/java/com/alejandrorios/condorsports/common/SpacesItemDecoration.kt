@@ -1,12 +1,12 @@
 package com.alejandrorios.condorsports.common
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 
-class SpacesItemDecoration(private val mSpace: Int) : RecyclerView.ItemDecoration() {
+class SpacesItemDecoration(private val mSpace: Int) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: androidx.recyclerview.widget.RecyclerView, state: androidx.recyclerview.widget.RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
         outRect.left = mSpace
         outRect.right = mSpace

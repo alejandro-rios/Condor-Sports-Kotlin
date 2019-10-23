@@ -1,7 +1,7 @@
 package com.alejandrorios.condorsports.adapters
 
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +32,7 @@ class TeamListAdapter(private var teamsList: List<TeamData>) : Adapter<TeamListA
         holder.bindData(teamsList[position])
     }
 
-    inner class TeamHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class TeamHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         private val teamBadge: ImageView = itemView.findViewById(R.id.imgTeamBadge)
         private val teamName: TextView = itemView.findViewById(R.id.txtTeamName)

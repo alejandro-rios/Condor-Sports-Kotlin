@@ -3,12 +3,12 @@ package com.alejandrorios.condorsports.ui.teamDetails
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.CollapsingToolbarLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -56,7 +56,7 @@ class TeamDetailsActivity : AppCompatActivity(), TeamDetailsActivityView,
     lateinit var txtTeamDesc: TextView
 
     @BindView(R.id.rvEventsList)
-    lateinit var rvEventsList: RecyclerView
+    lateinit var rvEventsList: androidx.recyclerview.widget.RecyclerView
 
     var presenter: TeamDetailsPresenter? = null
     var teamDataInfo: TeamData? = null
@@ -107,7 +107,7 @@ class TeamDetailsActivity : AppCompatActivity(), TeamDetailsActivityView,
             .into(imgTeamJersey)
 
         rvEventsList.apply {
-            layoutManager = LinearLayoutManager(applicationContext)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
             layoutAnimation = animation
             adapter = EventsListAdapter(eventsData)
             addItemDecoration(SpacesItemDecoration(16))
