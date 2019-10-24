@@ -15,6 +15,7 @@ data class ViewTeamData(
     var strStadium: String? = null,
     var strWebsite: String? = null,
     var strFacebook: String? = null,
+    var strTwitter: String? = null,
     var strInstagram: String? = null,
     var strDescriptionEN: String? = null,
     var strTeamBadge: String? = null,

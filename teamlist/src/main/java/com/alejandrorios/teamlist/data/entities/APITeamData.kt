@@ -1,9 +1,9 @@
-package com.alejandrorios.core.models
+package com.alejandrorios.teamlist.data.entities
 
 /**
- * Created by Alejandro Rios on 2019-10-23
+ * Created by Alejandro Rios on 2019-10-24
  */
-data class TeamData(
+data class APITeamData(
     var idTeam: String? = null,
     var strTeam: String? = null,
     var strAlternate: String? = null,

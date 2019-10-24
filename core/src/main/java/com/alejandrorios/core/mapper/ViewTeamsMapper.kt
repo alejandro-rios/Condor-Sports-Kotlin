@@ -17,6 +17,7 @@ object ViewTeamsMapper {
             teamData.strStadium,
             teamData.strWebsite,
             teamData.strFacebook,
+            teamData.strTwitter,
             teamData.strInstagram,
             teamData.strDescriptionEN,
             teamData.strTeamBadge,
