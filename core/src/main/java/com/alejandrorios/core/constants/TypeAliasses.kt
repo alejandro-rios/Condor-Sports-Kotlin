@@ -9,3 +9,5 @@ import android.content.SharedPreferences
 typealias LocalStorageKey = String
 
 typealias SharePreferenceGetter = (Context) -> SharedPreferences
+
+typealias StringResourceId = Int
