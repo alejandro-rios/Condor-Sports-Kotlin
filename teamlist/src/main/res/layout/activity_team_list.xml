@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/clMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".TeamListActivity">
+
+    <com.leinardi.android.speeddial.SpeedDialView
+            android:id="@+id/fabChangeLeague"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            app:layout_behavior="@string/speeddial_scrolling_view_snackbar_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:sdMainFabClosedSrc="@drawable/ic_replace"
+            app:sdMainFabOpenedSrc="@drawable/ic_close" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
