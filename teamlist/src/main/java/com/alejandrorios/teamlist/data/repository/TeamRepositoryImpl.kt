@@ -16,8 +16,8 @@ class TeamRepositoryImpl(
     override suspend fun getTeamsList(codeLeague: String): List<TeamData> {
         val apiTeams = getTeamService.getTeams(codeLeague)
 
-        return apiTeams.map {
-            apiTeamMapper.map(it)
+        return apiTeams.teams!!.map { apiTeamData ->
+            APITeamMapper.map(apiTeamData)
         }
     }
 }

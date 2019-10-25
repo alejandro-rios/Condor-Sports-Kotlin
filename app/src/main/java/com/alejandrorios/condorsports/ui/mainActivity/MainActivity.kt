@@ -19,6 +19,7 @@ import com.alejandrorios.condorsports.adapters.TeamListAdapter
 import com.alejandrorios.condorsports.common.SpacesItemDecoration
 import com.alejandrorios.condorsports.models.TeamData
 import com.alejandrorios.condorsports.service.api.GetTeamsList
+import com.alejandrorios.teamlist.utils.SPAN_COUNT
 import com.leinardi.android.speeddial.SpeedDialActionItem
 import com.leinardi.android.speeddial.SpeedDialView
 
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity(), MainActivityView, SpeedDialView.OnActi
     @BindView(R.id.toolbar)
     lateinit var toolbar: Toolbar
 
-    @BindView(R.id.fabChangeLeague)
+    @BindView(R.id.fabChangeLeagues)
     lateinit var fab: SpeedDialView
 
     @BindView(R.id.pbTeamsList)
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity(), MainActivityView, SpeedDialView.OnActi
     override fun setupTeamsList(teams: List<TeamData>) {
         teamsList = teams
         val llm = StaggeredGridLayoutManager(
-            3,
+            SPAN_COUNT,
             StaggeredGridLayoutManager.VERTICAL
         )
         val resId: Int = R.anim.recycler_animation_falldown

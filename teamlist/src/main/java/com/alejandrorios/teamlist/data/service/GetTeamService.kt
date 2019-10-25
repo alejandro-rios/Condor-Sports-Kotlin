@@ -1,6 +1,6 @@
 package com.alejandrorios.teamlist.data.service
 
-import com.alejandrorios.teamlist.data.entities.APITeamData
+import com.alejandrorios.teamlist.data.entities.APITeams
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -10,5 +10,5 @@ import retrofit2.http.Query
 interface GetTeamService {
 
     @GET("lookup_all_teams.php")
-    suspend fun getTeams(@Query("id") codeLeague: String): List<APITeamData>
+    suspend fun getTeams(@Query("id") codeLeague: String): APITeams
 }

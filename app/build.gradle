@@ -1,9 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 apply plugin: 'realm-android'
@@ -28,14 +26,50 @@ android {
             buildConfigField "String", "SERVER_URL", "\"https://www.thesportsdb.com/api/v1/json/1/\""
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.0.0'
+    def androidDependencies = rootProject.ext.androidDependencies
+    def acceptanceTesting = rootProject.ext.acceptanceTesting
+    def applicationDependencies = rootProject.ext.mainApplication
+    def testDependencies = rootProject.ext.unitTesting
+    def networkingDependencies = rootProject.ext.networking
+    def developmentDependencies = rootProject.ext.development
+
+    // Kotlin
+    implementation applicationDependencies.kotlinJDK
+
+    //Support libraries
+    implementation androidDependencies.appCompat
+    implementation androidDependencies.cardView
+    implementation androidDependencies.recyclerView
+    implementation androidDependencies.design
+    implementation androidDependencies.constraintLayout
+    implementation androidDependencies.appCompatV4
+    implementation androidDependencies.appCompatV7
+    implementation androidDependencies.preferenceV7
+    implementation androidDependencies.preferenceV14
+    implementation androidDependencies.customTabs
+    implementation androidDependencies.multidex
+
+    // UI
+    implementation applicationDependencies.deeplinkDispatch
+    kapt applicationDependencies.deeplinkDispatchProcessor
+
+    //Coroutines
+    implementation applicationDependencies.kotlinCoroutines
+    implementation applicationDependencies.kotlinCoroutinesAndroid
+
+    //Dagger
+    implementation applicationDependencies.dagger
+    implementation applicationDependencies.daggerAndroidSupport
+    kapt applicationDependencies.daggerCompiler
+    kapt applicationDependencies.daggerAndroidProcessor
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
@@ -52,9 +86,26 @@ dependencies {
     // Speed Dial Floating Button
     implementation "com.leinardi.android:speed-dial:2.0.1"
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //Test
+    testImplementation testDependencies.mockk
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.kluent
+    testImplementation acceptanceTesting.mockWebServer
+
+    //Aceptance Testing
+    androidTestImplementation acceptanceTesting.androidAnnotations
+    androidTestImplementation acceptanceTesting.mockWebServer
+    androidTestImplementation acceptanceTesting.testRunner
+    androidTestImplementation acceptanceTesting.testRules
+    androidTestImplementation acceptanceTesting.espressoCore
+    androidTestImplementation acceptanceTesting.espressoContrib
+    androidTestImplementation acceptanceTesting.espressoIntents
+    androidTestImplementation acceptanceTesting.uiAutomator
+    androidTestImplementation testDependencies.mockitoCore
+    androidTestImplementation acceptanceTesting.daggerMock
+    androidTestImplementation testDependencies.mockk
 
     implementation project(path: ':core')
+    implementation project(path: ':teamlist')
 }

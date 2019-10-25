@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.alejandrorios.core.constants.StringResourceId
 import com.alejandrorios.core.models.TeamData
@@ -18,6 +18,7 @@ import com.alejandrorios.teamlist.R
 import com.alejandrorios.teamlist.base.BaseTeamListFragment
 import com.alejandrorios.teamlist.di.TeamListComponent
 import com.alejandrorios.teamlist.utils.*
+import com.leinardi.android.speeddial.SpeedDialActionItem
 import kotlinx.android.synthetic.main.fragment_team_list.*
 import javax.inject.Inject
 
@@ -31,7 +32,6 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
 
     private var decoration = SpacesItemDecoration(SPACE_DECORATOR)
     private var shortAnimTime: Long? = ZERO
-
 
     override fun injectFragmentBuilder(builder: TeamListComponent) {
         builder.inject(this)
@@ -69,12 +69,13 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
             StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
 
         rvTeams?.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = llm
             layoutAnimation = animation
-            setHasFixedSize(true)
             adapter = TeamAdapter(presenter)
             addItemDecoration(decoration)
         }
+
+        setUpFab()
 
         presenter.onViewCreated()
     }
@@ -135,6 +136,65 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
                     pbTeams.visibility = View.GONE
                 }
             })
+    }
+
+    private fun setUpFab() {
+        val context = context ?: return
+
+        fabChangeLeague.apply {
+            addActionItem(
+                SpeedDialActionItem.Builder(
+                    R.id.fab_uefa_champions_league,
+                    R.drawable.ic_russian_league
+                )
+                    .setLabel(getString(R.string.russian_premier_league_title))
+                    .setLabelBackgroundColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.colorPrimary,
+                            context.theme
+                        )
+                    )
+                    .create()
+            )
+
+            addActionItem(
+                SpeedDialActionItem.Builder(R.id.fab_english_premier_league, R.drawable.ic_english)
+                    .setLabel(getString(R.string.english_league_title))
+                    .setLabelBackgroundColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.colorPrimary,
+                            context.theme
+                        )
+                    )
+                    .create()
+            )
+
+            addActionItem(
+                SpeedDialActionItem.Builder(R.id.fab_spanish_league, R.drawable.ic_la_liga)
+                    .setLabel(getString(R.string.spanish_league_title))
+                    .setLabelBackgroundColor(
+                        ResourcesCompat.getColor(
+                            resources,
+                            R.color.colorPrimary,
+                            context.theme
+                        )
+                    )
+                    .create()
+            )
+        }
+
+        fabChangeLeague.setOnActionSelectedListener(this)
+    }
+
+    override fun onActionSelected(actionItem: SpeedDialActionItem?): Boolean {
+        when (actionItem?.id) {
+            R.id.fab_spanish_league -> presenter.getTeamsFromLeague(getString(R.string.spanish_league_code))
+            R.id.fab_english_premier_league -> presenter.getTeamsFromLeague(getString(R.string.english_league_code))
+            R.id.fab_uefa_champions_league -> presenter.getTeamsFromLeague(getString(R.string.russian_premier_league_code))
+        }
+        return false
     }
 
     companion object {

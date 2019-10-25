@@ -4,7 +4,6 @@ import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.interactor.Interactor
 import com.alejandrorios.core.mapper.ViewTeamsMapper
 import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.teamlist.R
 import com.alejandrorios.teamlist.utils.SPANISH_LEAGUE_CODE
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext
@@ -23,6 +22,10 @@ class TeamListPresenter(
 
     override fun onViewCreated() {
         getTeams(SPANISH_LEAGUE_CODE)
+    }
+
+    override fun getTeamsFromLeague(codeLeague: String){
+        getTeams(codeLeague)
     }
 
     private fun getTeams(codeLeague: String){
@@ -45,5 +48,4 @@ class TeamListPresenter(
     override fun onTeamClick(team: TeamData) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }

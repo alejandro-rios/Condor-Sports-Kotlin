@@ -1,17 +1,17 @@
 package com.alejandrorios.condorsports.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alejandrorios.condorsports.R
-import com.alejandrorios.condorsports.ui.mainActivity.MainActivity
+import com.alejandrorios.core.constants.TEAM_LIST_DEEP_LINK
+import com.alejandrorios.core.extensions.startDeepLinkIntent
 
 class CondorSportsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
-        startActivity(Intent(this@CondorSportsActivity, MainActivity::class.java))
+        startDeepLinkIntent(TEAM_LIST_DEEP_LINK)
         finish()
     }
 }
