@@ -64,7 +64,7 @@ class GetTeamServiceTest : MockServerTest {
         }
 
         then {
-            result[0] shouldEqual APITeamData(
+            result shouldEqual APITeamData(
                 "133604",
                 "Arsenal",
                 "Gunners",

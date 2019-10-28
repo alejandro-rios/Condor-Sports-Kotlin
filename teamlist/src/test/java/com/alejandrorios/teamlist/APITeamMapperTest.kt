@@ -12,7 +12,7 @@ class APITeamMapperTest {
 
     @Test
     fun `should get a teamData from an APITeamData`() {
-        val apiTeamDatasource = given {
+        val apiTeamDataSource = given {
             APITeamData(
                 "133604",
                 "Arsenal",
@@ -31,7 +31,7 @@ class APITeamMapperTest {
         }
 
         val result = whenever {
-            APITeamMapper.map(apiTeamDatasource)
+            APITeamMapper.map(apiTeamDataSource)
         }
 
         then {

@@ -17,7 +17,7 @@ class TeamRepositoryImpl(
         val apiTeams = getTeamService.getTeams(codeLeague)
 
         return apiTeams.teams!!.map { apiTeamData ->
-            APITeamMapper.map(apiTeamData)
+            apiTeamMapper.map(apiTeamData)
         }
     }
 }

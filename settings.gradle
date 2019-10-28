@@ -1,1 +1,1 @@
-include ':app', ':core', ':teamlist'
+include ':app', ':core', ':teamlist', ':teamdetails'
