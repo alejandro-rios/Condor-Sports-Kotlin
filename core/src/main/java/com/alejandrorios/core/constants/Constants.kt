@@ -11,3 +11,5 @@ const val TOKEN = "token"
 const val BACKEND_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 const val DATE_FORMAT = "MM/dd/yyyy"
 const val DISPLAY_DATE_FORMAT = "MMM dd, yyyy"
+
+const val ARGUMENT_TEAM_DETAILS = "ARGUMENT_TEAM_DETAILS"

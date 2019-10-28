@@ -9,12 +9,14 @@ import com.alejandrorios.teamdetails.R
 /**
  * Created by Alejandro Rios on 2019-10-27
  */
-class EventsAdapter(private val teamEvents: ArrayList<TeamEventData> = ArrayList()) :
+class EventsAdapter(
+    private val teamEvents: ArrayList<TeamEventData> = ArrayList()
+) :
     RecyclerView.Adapter<EventsItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsItemViewHolder {
         return EventsItemViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_event,
+                R.layout.event_item,
                 parent,
                 false
             )

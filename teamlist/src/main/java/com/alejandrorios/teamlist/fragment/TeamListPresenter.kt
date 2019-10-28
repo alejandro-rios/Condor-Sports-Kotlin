@@ -15,7 +15,7 @@ class TeamListPresenter(
     private val getTeamsInteractor: Interactor<List<TeamData>, String>,
     private val viewTeamMapper: ViewTeamsMapper,
     override val coroutinesContextProvider: CoroutineContextProvider
-) : TeamListContract.Presenter{
+) : TeamListContract.Presenter {
 
     override var view: TeamListContract.View? = null
     override val parentJob: Job = Job()
@@ -24,11 +24,11 @@ class TeamListPresenter(
         getTeams(SPANISH_LEAGUE_CODE)
     }
 
-    override fun getTeamsFromLeague(codeLeague: String){
+    override fun getTeamsFromLeague(codeLeague: String) {
         getTeams(codeLeague)
     }
 
-    private fun getTeams(codeLeague: String){
+    private fun getTeams(codeLeague: String) {
         view?.showProgressDialog()
         launchJobOnMainDispatchers {
             try {
@@ -46,6 +46,6 @@ class TeamListPresenter(
     }
 
     override fun onTeamClick(team: TeamData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        view?.openTeamDetails(viewTeamMapper.map(team))
     }
 }

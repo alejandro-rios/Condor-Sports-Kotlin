@@ -9,9 +9,13 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.alejandrorios.core.constants.ARGUMENT_TEAM_DETAILS
 import com.alejandrorios.core.constants.StringResourceId
+import com.alejandrorios.core.constants.TEAM_DETAILS_DEEP_LINK
+import com.alejandrorios.core.extensions.startDeepLinkIntent
 import com.alejandrorios.core.models.TeamData
 import com.alejandrorios.core.models.ViewTeamData
 import com.alejandrorios.teamlist.R
@@ -31,7 +35,7 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
     lateinit var presenter: TeamListContract.Presenter
 
     private var decoration = SpacesItemDecoration(SPACE_DECORATOR)
-    private var shortAnimTime: Long? = ZERO
+    private var shortAnimTime: Long = ANIMATION_TIME
 
     override fun injectFragmentBuilder(builder: TeamListComponent) {
         builder.inject(this)
@@ -97,12 +101,16 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
     }
 
     override fun openTeamDetails(viewTeam: ViewTeamData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        (activity as? AppCompatActivity)?.startDeepLinkIntent(
+            TEAM_DETAILS_DEEP_LINK,
+            Bundle().apply {
+                putParcelable(ARGUMENT_TEAM_DETAILS, viewTeam)
+            })
     }
 
     override fun showProgressDialog() {
         rvTeams.visibility = View.GONE
-        rvTeams.animate().setDuration(shortAnimTime!!).alpha(ZERO_ALPHA)
+        rvTeams.animate().setDuration(shortAnimTime).alpha(ZERO_ALPHA)
             .setListener(object :
                 AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -110,7 +118,7 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
                 }
             })
         pbTeams.visibility = View.VISIBLE
-        pbTeams.animate().setDuration(shortAnimTime!!).alpha(ONE_ALPHA)
+        pbTeams.animate().setDuration(shortAnimTime).alpha(ONE_ALPHA)
             .setListener(object :
                 AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -121,7 +129,7 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
 
     override fun hideProgressDialog() {
         rvTeams.visibility = View.VISIBLE
-        rvTeams.animate().setDuration(shortAnimTime!!).alpha(ONE_ALPHA)
+        rvTeams.animate().setDuration(shortAnimTime).alpha(ONE_ALPHA)
             .setListener(object :
                 AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -129,7 +137,7 @@ class TeamListFragment : BaseTeamListFragment(), TeamListContract.View {
                 }
             })
         pbTeams.visibility = View.GONE
-        pbTeams.animate().setDuration(shortAnimTime!!).alpha(ZERO_ALPHA)
+        pbTeams.animate().setDuration(shortAnimTime).alpha(ZERO_ALPHA)
             .setListener(object :
                 AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {

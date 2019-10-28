@@ -2,7 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".activity.TeamDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/barLayout"
@@ -60,7 +62,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ProgressBar
-            android:id="@+id/pbEventsList"
+            android:id="@+id/pbTeamEvents"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,7 +130,7 @@
                     android:text="@string/team_details_upcoming_events_title" />
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvEventsList"
+                    android:id="@+id/rvTeamEvents"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior" />

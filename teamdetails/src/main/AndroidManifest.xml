@@ -3,7 +3,11 @@
         package="com.alejandrorios.teamdetails">
 
     <application>
-        <activity android:name=".activity.TeamDetailsActivity"></activity>
+        <activity android:name=".activity.TeamDetailsActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

@@ -9,3 +9,4 @@ const val ZERO_ALPHA = 0f
 const val ONE_ALPHA = 1f
 const val SPANISH_LEAGUE_CODE = "4335"
 const val SPAN_COUNT = 3
+const val ANIMATION_TIME = 200L

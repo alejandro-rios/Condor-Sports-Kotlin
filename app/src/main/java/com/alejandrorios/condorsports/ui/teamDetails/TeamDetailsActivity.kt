@@ -1,37 +1,10 @@
 package com.alejandrorios.condorsports.ui.teamDetails
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.Toolbar
-import android.view.MenuItem
-import android.view.View
-import android.view.animation.AnimationUtils
-import android.view.animation.LayoutAnimationController
-import android.widget.ImageView
-import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
-import com.alejandrorios.condorsports.R
-import com.alejandrorios.condorsports.adapters.EventsListAdapter
-import com.alejandrorios.condorsports.common.ConfirmationDialog
-import com.alejandrorios.condorsports.common.SpacesItemDecoration
-import com.alejandrorios.condorsports.models.EventsData
-import com.alejandrorios.condorsports.models.TeamData
-import com.alejandrorios.condorsports.service.api.GetEventsList
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.google.gson.Gson
 
-class TeamDetailsActivity : AppCompatActivity(), TeamDetailsActivityView,
-    BottomNavigationView.OnNavigationItemSelectedListener {
+class TeamDetailsActivity : AppCompatActivity() {
 
-    @BindView(R.id.collapsing_toolbar)
+   /* @BindView(R.id.collapsing_toolbar)
     lateinit var collapsing_toolbar: CollapsingToolbarLayout
 
     @BindView(R.id.toolbar)
@@ -64,7 +37,7 @@ class TeamDetailsActivity : AppCompatActivity(), TeamDetailsActivityView,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_team_details)
+        setContentView(R.layout.)
         ButterKnife.bind(this)
 
         setSupportActionBar(toolbar)
@@ -183,4 +156,6 @@ class TeamDetailsActivity : AppCompatActivity(), TeamDetailsActivityView,
             showSimple(msg, true)
         }
     }
+
+    */
 }

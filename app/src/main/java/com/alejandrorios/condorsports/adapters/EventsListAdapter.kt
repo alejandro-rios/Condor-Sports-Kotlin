@@ -1,7 +1,6 @@
 package com.alejandrorios.condorsports.adapters
 
 import android.graphics.drawable.Drawable
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,7 @@ class EventsListAdapter(private var eventsList: List<EventsData>) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.event_item, parent, false)
 
         return EventHolder(view)
     }
