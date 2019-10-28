@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
  * Created by Alejandro Rios on 2019-10-26
  */
 @RunWith(AndroidJUnit4::class)
-class CondorSportsActivityTest {
+class TeamListFragmentTest {
 
     @Rule
     @JvmField
@@ -65,6 +65,6 @@ class CondorSportsActivityTest {
         wait(TWO_SECS)
         isTextDisplayed("Condor Sports")
         isViewDisplayed(R.id.rvTeams)
-        recyclerViewItemClick(R.id.rvTeams, 0)
+        recyclerViewItemClick(device!!, 0)
     }
 }

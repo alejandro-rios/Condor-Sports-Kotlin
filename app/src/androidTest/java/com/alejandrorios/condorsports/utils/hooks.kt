@@ -8,11 +8,14 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
 import androidx.test.runner.lifecycle.Stage
+import androidx.test.uiautomator.UiDevice
+import androidx.test.uiautomator.UiObject
+import androidx.test.uiautomator.UiObject2
+import androidx.test.uiautomator.UiSelector
 import com.alejandrorios.condorsports.R
 import junit.framework.Assert.assertFalse
 import junit.framework.Assert.assertTrue
@@ -38,6 +41,13 @@ fun getCurrentActivity(): Activity? {
     }
 
     return currentActivity
+}
+
+fun goToTeamDetails(device: UiDevice, pos: Int = 0) {
+    wait(TWO_SECS)
+    isViewDisplayed(R.id.rvTeams)
+    recyclerViewItemClick(device, pos)
+    wait(TWO_SECS)
 }
 
 //fun loginTestUser(
@@ -81,21 +91,24 @@ fun scrollToView(id: Int) {
 }
 
 fun recyclerViewItemClick(
-    id: Int,
+    device: UiDevice,
     pos: Int
 ) {
-    var isDisplayed = true
-    onView(withId(id))
-        .withFailureHandler { error, _ ->
-            isDisplayed = error is AmbiguousViewMatcherException
-        }
-        .check(matches(isDisplayed()))
-        .perform(
-            RecyclerViewActions.actionOnItemAtPosition<androidx.recyclerview.widget.RecyclerView.ViewHolder>(
-                pos,
-                click()
-            )
-        )
+    val recyclerView: UiObject =
+        device.findObject(UiSelector().className("androidx.recyclerview.widget.RecyclerView"))
+    assertTrue(recyclerView.exists())
+
+    recyclerView.getChild(UiSelector().index(pos)).click()
+}
+
+fun getBottomBar(
+    device: UiDevice
+) : UiObject{
+    val bottomBar: UiObject =
+        device.findObject(UiSelector().className("com.google.android.material.bottomnavigation.BottomNavigationView"))
+    assertTrue(bottomBar.exists())
+
+    return bottomBar
 }
 
 fun isTextDisplayed(text: String) {
