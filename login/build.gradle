@@ -1,36 +1,38 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
-apply plugin: 'realm-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
     defaultConfig {
-        applicationId "com.alejandrorios.condorsports"
-        minSdkVersion 26
-        targetSdkVersion 28
+        minSdkVersion 24
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "SERVER_URL", "\"https://www.thesportsdb.com/api/v1/json/1/\""
-        }
-        debug {
-            buildConfigField "String", "SERVER_URL", "\"https://www.thesportsdb.com/api/v1/json/1/\""
         }
     }
+
+    testOptions.unitTests.includeAndroidResources = true
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -41,13 +43,8 @@ dependencies {
     def networkingDependencies = rootProject.ext.networking
     def developmentDependencies = rootProject.ext.development
 
-    // Kotlin
-    implementation applicationDependencies.kotlinJDK
-
-    //Support libraries
+    // Support libraries
     implementation androidDependencies.appCompat
-    implementation androidDependencies.cardView
-    implementation androidDependencies.recyclerView
     implementation androidDependencies.design
     implementation androidDependencies.constraintLayout
     implementation androidDependencies.appCompatV4
@@ -57,34 +54,28 @@ dependencies {
     implementation androidDependencies.customTabs
     implementation androidDependencies.multidex
 
+    // Kotlin
+    implementation applicationDependencies.kotlinJDK
+
     // UI
     implementation applicationDependencies.deeplinkDispatch
     kapt applicationDependencies.deeplinkDispatchProcessor
 
-    //Coroutines
-    implementation applicationDependencies.kotlinCoroutines
-    implementation applicationDependencies.kotlinCoroutinesAndroid
-
-    //Dagger
+    // Dagger
     implementation applicationDependencies.dagger
     implementation applicationDependencies.daggerAndroidSupport
     kapt applicationDependencies.daggerCompiler
     kapt applicationDependencies.daggerAndroidProcessor
 
+    // Coroutines
+    implementation applicationDependencies.kotlinCoroutines
+    implementation applicationDependencies.kotlinCoroutinesAndroid
+
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
-
-    // ButterKnife
-    implementation 'com.jakewharton:butterknife:10.2.0'
-    kapt 'com.jakewharton:butterknife-compiler:10.2.0'
-
-    // Glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
-
-    // Speed Dial Floating Button
-    implementation "com.leinardi.android:speed-dial:2.0.1"
+    implementation networkingDependencies.retrofit
+    implementation networkingDependencies.gsonConverter
+    implementation networkingDependencies.okhttp3
+    implementation networkingDependencies.okhttpLoggingInterceptor
 
     //Test
     testImplementation testDependencies.mockk
@@ -107,7 +98,4 @@ dependencies {
     androidTestImplementation testDependencies.mockk
 
     implementation project(path: ':core')
-    implementation project(path: ':login')
-    implementation project(path: ':teamlist')
-    implementation project(path: ':teamdetails')
 }
