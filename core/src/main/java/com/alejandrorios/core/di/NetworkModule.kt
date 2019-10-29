@@ -1,7 +1,6 @@
 package com.alejandrorios.core.di
 
-import com.alejandrorios.core.constants.BACKEND_DATE_FORMAT
-import com.alejandrorios.core.constants.TIME_OUT_SECONDS
+import com.alejandrorios.core.constants.*
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -10,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 
 /**
  * Created by Alejandro Rios on 2019-10-23
@@ -45,14 +45,29 @@ class NetworkModule {
         return builder.build()
     }
 
+    @Named(BASE_RETROFIT)
     @Provides
-    fun provideRetrofit(
-        baseUrl: String,
+    fun provideBaseRetrofit(
+        @Named(BASE_API) baseUrl: String,
         gsonConverterFactory: GsonConverterFactory,
         httpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            .addConverterFactory(gsonConverterFactory)
+            .client(httpClient)
+            .build()
+    }
+
+    @Named(MOBILE_RETROFIT)
+    @Provides
+    fun provideMobileRetrofit(
+        @Named(MOBILE_API) mobileApiUrl: String,
+        gsonConverterFactory: GsonConverterFactory,
+        httpClient: OkHttpClient
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(mobileApiUrl)
             .addConverterFactory(gsonConverterFactory)
             .client(httpClient)
             .build()

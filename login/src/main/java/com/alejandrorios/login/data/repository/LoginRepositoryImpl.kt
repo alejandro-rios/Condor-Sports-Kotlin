@@ -3,7 +3,6 @@ package com.alejandrorios.login.data.repository
 import com.alejandrorios.core.models.LoginParams
 import com.alejandrorios.core.models.TokenData
 import com.alejandrorios.core.repositories.LoginRepository
-import com.alejandrorios.login.data.entities.APILoginParams
 import com.alejandrorios.login.data.mapper.APITokenMapper
 import com.alejandrorios.login.data.services.LoginService
 
@@ -15,7 +14,12 @@ class LoginRepositoryImpl(
     private val apiTokenMapper: APITokenMapper
 ) : LoginRepository {
     override suspend fun login(loginParams: LoginParams): TokenData {
-        val apiToken = loginService.login(APILoginParams(loginParams.userName, loginParams.password ))
+        val loginParamsMap = mapOf(
+            "username" to loginParams.userName,
+            "password" to loginParams.password,
+            "grant_type" to "password"
+        )
+        val apiToken = loginService.login(loginParamsMap)
 
         return apiToken.let {
             apiTokenMapper.map(it)

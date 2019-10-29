@@ -1,6 +1,7 @@
 package com.alejandrorios.teamlist.di
 
 import com.alejandrorios.core.CoroutineContextProvider
+import com.alejandrorios.core.constants.BASE_RETROFIT
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
 import com.alejandrorios.core.interactor.Interactor
 import com.alejandrorios.core.mapper.ViewTeamsMapper
@@ -24,7 +25,7 @@ import javax.inject.Named
 class TeamListModule {
 
     @Provides
-    fun provideGetTeamsListService(retrofit: Retrofit): GetTeamService {
+    fun provideGetTeamsListService(@Named(BASE_RETROFIT) retrofit: Retrofit): GetTeamService {
         return retrofit.create(GetTeamService::class.java)
     }
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.deeplinkdispatch.DeepLinkHandler
 import com.alejandrorios.login.deeplink.LoginDeepLinkModule
+import com.alejandrorios.login.deeplink.LoginDeepLinkModuleLoader
 import com.alejandrorios.teamdetails.deeplink.TeamDetailsDeepLinkModule
 import com.alejandrorios.teamdetails.deeplink.TeamDetailsDeepLinkModuleLoader
 import com.alejandrorios.teamlist.deeplink.TeamListDeepLinkModule

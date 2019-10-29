@@ -1,6 +1,7 @@
 package com.alejandrorios.teamdetails.di
 
 import com.alejandrorios.core.CoroutineContextProvider
+import com.alejandrorios.core.constants.BASE_RETROFIT
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
 import com.alejandrorios.core.interactor.Interactor
 import com.alejandrorios.core.models.TeamEventData
@@ -23,7 +24,7 @@ import javax.inject.Named
 class TeamDetailsModule {
 
     @Provides
-    fun provideGetTeamDetailsService(retrofit: Retrofit): GetTeamEventsService {
+    fun provideGetTeamDetailsService(@Named(BASE_RETROFIT) retrofit: Retrofit): GetTeamEventsService {
         return retrofit.create(GetTeamEventsService::class.java)
     }
 
@@ -41,7 +42,7 @@ class TeamDetailsModule {
     fun provideTeamDetailsPresenter(
         getTeamEventsInteractor: Interactor<List<TeamEventData>, String>,
         @Named(COROUTINE_IO_CONTEXT_PROVIDER) coroutineContextProvider: CoroutineContextProvider
-    ) : TeamDetailsContract.Presenter {
+    ): TeamDetailsContract.Presenter {
         return TeamDetailsPresenter(getTeamEventsInteractor, coroutineContextProvider)
     }
 }

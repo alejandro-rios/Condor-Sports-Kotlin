@@ -2,6 +2,7 @@ package com.alejandrorios.login.di
 
 import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
+import com.alejandrorios.core.constants.MOBILE_RETROFIT
 import com.alejandrorios.core.interactor.Interactor
 import com.alejandrorios.core.models.TokenData
 import com.alejandrorios.core.repositories.LoginRepository
@@ -24,7 +25,9 @@ import javax.inject.Named
 class LoginModule {
 
     @Provides
-    fun provideLoginService(retrofit: Retrofit): LoginService {
+    fun provideLoginService(
+        @Named(MOBILE_RETROFIT) retrofit: Retrofit
+    ): LoginService {
         return retrofit.create(LoginService::class.java)
     }
 

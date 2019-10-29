@@ -2,6 +2,7 @@ package com.alejandrorios.login.base
 
 import com.alejandrorios.core.contract.BaseActivity
 import com.alejandrorios.core.di.CoreComponentProvider
+import com.alejandrorios.login.di.DaggerLoginComponent
 import com.alejandrorios.login.di.LoginComponent
 import com.alejandrorios.login.di.LoginModule
 
@@ -16,7 +17,7 @@ abstract class BaseLoginActivity : BaseActivity() {
         injectActivityBuilder(
             DaggerLoginComponent.builder()
                 .coreComponent((application as CoreComponentProvider).getCoreComponent())
-                .LoginModule(LoginModule())
+                .loginModule(LoginModule())
                 .build()
         )
     }

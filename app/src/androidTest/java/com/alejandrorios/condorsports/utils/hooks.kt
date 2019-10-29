@@ -14,7 +14,6 @@ import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry
 import androidx.test.runner.lifecycle.Stage
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiObject
-import androidx.test.uiautomator.UiObject2
 import androidx.test.uiautomator.UiSelector
 import com.alejandrorios.condorsports.R
 import junit.framework.Assert.assertFalse
@@ -50,25 +49,12 @@ fun goToTeamDetails(device: UiDevice, pos: Int = 0) {
     wait(TWO_SECS)
 }
 
-//fun loginTestUser(
-//    user: String,
-//    password: String
-//) {
-//    buttonClick(R.id.welcome_button_login)
-//    closeSoftKeyboard()
-//    onView(withId(R.id.login_edittext_username))
-//        .perform(
-//            replaceText(user)
-//        )
-//    closeSoftKeyboard()
-//    onView(withId(R.id.login_edittext_password))
-//        .perform(
-//            replaceText(password)
-//        )
-//    closeSoftKeyboard()
-//    onView(withId(R.id.login_button_login)).perform(click())
-//    wait(THREE_SECS)
-//}
+fun setText(id: Int, text: String) {
+    onView(withId(id))
+        .perform(
+            ViewActions.replaceText(text)
+        )
+}
 
 fun buttonClick(text: String) {
     onView(withText(text)).check(matches(isDisplayed()))
@@ -103,7 +89,7 @@ fun recyclerViewItemClick(
 
 fun getBottomBar(
     device: UiDevice
-) : UiObject{
+): UiObject {
     val bottomBar: UiObject =
         device.findObject(UiSelector().className("com.google.android.material.bottomnavigation.BottomNavigationView"))
     assertTrue(bottomBar.exists())

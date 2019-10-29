@@ -1,8 +1,10 @@
 package com.alejandrorios.core.di
 
 import com.alejandrorios.core.CoroutineContextProvider
+import com.alejandrorios.core.constants.BASE_RETROFIT
 import com.alejandrorios.core.constants.COROUTINE_COMPUTATIONAL_CONTEXT_PROVIDER
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
+import com.alejandrorios.core.constants.MOBILE_RETROFIT
 import com.alejandrorios.core.repositories.LocalStorageRepository
 import dagger.Component
 import retrofit2.Retrofit
@@ -20,7 +22,11 @@ interface CoreComponent {
     @Named(COROUTINE_COMPUTATIONAL_CONTEXT_PROVIDER)
     fun provideComputationalCoroutineContextProvider(): CoroutineContextProvider
 
-    fun provideRetrofit(): Retrofit
+    @Named(BASE_RETROFIT)
+    fun provideBaseRetrofit(): Retrofit
+
+    @Named(MOBILE_RETROFIT)
+    fun provideMobileRetrofit(): Retrofit
 
     fun provideLocalStorageRepository(): LocalStorageRepository
 }

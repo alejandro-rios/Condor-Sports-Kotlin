@@ -3,7 +3,6 @@ package com.alejandrorios.teamdetails.activity
 import com.alejandrorios.core.constants.StringResourceId
 import com.alejandrorios.core.contract.BasePresenter
 import com.alejandrorios.core.contract.BaseView
-import com.alejandrorios.core.models.TeamData
 import com.alejandrorios.core.models.TeamEventData
 import com.alejandrorios.core.models.ViewTeamData
 import com.google.android.material.bottomnavigation.BottomNavigationView

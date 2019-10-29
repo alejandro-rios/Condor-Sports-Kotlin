@@ -2,9 +2,7 @@ package com.alejandrorios.core.di
 
 import android.content.Context
 import com.alejandrorios.core.CoroutineContextProvider
-import com.alejandrorios.core.constants.BASE_URL
-import com.alejandrorios.core.constants.COROUTINE_COMPUTATIONAL_CONTEXT_PROVIDER
-import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
+import com.alejandrorios.core.constants.*
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
@@ -33,8 +31,15 @@ class CoreModule(private val appContext: Context) {
         return CoroutineContextProvider(Dispatchers.Main, Dispatchers.Default)
     }
 
+    @Named(BASE_API)
     @Provides
     fun provideBaseUrl(): String {
         return BASE_URL
+    }
+
+    @Named(MOBILE_API)
+    @Provides
+    fun provideMobileApiUrl(): String {
+        return MOBILE_API_URL
     }
 }
