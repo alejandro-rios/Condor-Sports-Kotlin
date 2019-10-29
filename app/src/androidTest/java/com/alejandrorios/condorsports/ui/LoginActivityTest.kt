@@ -4,6 +4,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
 import androidx.test.uiautomator.UiDevice
+import com.alejandrorios.condorsports.CondorSportsActivity
 import com.alejandrorios.condorsports.R
 import com.alejandrorios.condorsports.utils.*
 import org.junit.Before

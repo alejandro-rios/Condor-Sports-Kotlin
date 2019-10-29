@@ -25,7 +25,6 @@ interface TeamListContract {
         fun showError(error: String)
 
         fun openTeamDetails(viewTeam: ViewTeamData)
-
     }
 
     interface Presenter : BasePresenter<View>, TeamClickListener {

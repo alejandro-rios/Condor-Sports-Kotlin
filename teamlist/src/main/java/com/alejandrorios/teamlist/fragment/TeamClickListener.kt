@@ -8,5 +8,4 @@ import com.alejandrorios.core.models.TeamData
 interface TeamClickListener {
 
     fun onTeamClick(team: TeamData)
-
 }

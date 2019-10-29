@@ -1,4 +1,4 @@
-package com.alejandrorios.condorsports.ui
+package com.alejandrorios.condorsports
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

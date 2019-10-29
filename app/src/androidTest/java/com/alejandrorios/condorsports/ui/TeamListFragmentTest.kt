@@ -6,6 +6,7 @@ import androidx.test.runner.AndroidJUnit4
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiObject
 import androidx.test.uiautomator.UiSelector
+import com.alejandrorios.condorsports.CondorSportsActivity
 import com.alejandrorios.condorsports.R
 import com.alejandrorios.condorsports.utils.*
 import org.junit.Before

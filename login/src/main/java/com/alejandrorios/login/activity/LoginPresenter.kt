@@ -39,9 +39,8 @@ class LoginPresenter(
 
                 view?.onLoginSuccess()
             } catch (t: Throwable) {
-                view?.showError(R.string.login_error)
-            } finally {
                 view?.hideProgressDialog()
+                view?.showError(R.string.login_error)
             }
         }
     }
