@@ -1,6 +1,6 @@
 package com.alejandrorios.login.data.mapper
 
-import com.alejandrorios.core.models.TokenData
+import com.alejandrorios.login.domain.models.TokenData
 import com.alejandrorios.login.data.entities.APIToken
 
 /**
@@ -8,7 +8,7 @@ import com.alejandrorios.login.data.entities.APIToken
  */
 object APITokenMapper {
 
-    fun map(apiToken: APIToken): TokenData{
+    fun map(apiToken: APIToken): TokenData {
         return TokenData(
             apiToken.tokenType,
             apiToken.refreshToken,

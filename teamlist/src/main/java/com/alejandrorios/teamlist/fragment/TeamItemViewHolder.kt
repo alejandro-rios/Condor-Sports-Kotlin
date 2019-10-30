@@ -5,8 +5,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
-import com.alejandrorios.core.models.TeamData
 import com.alejandrorios.teamlist.R
+import com.alejandrorios.teamlist.domain.models.TeamData
 
 /**
  * Created by Alejandro Rios on 2019-10-24

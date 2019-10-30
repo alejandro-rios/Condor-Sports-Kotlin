@@ -1,7 +1,7 @@
 package com.alejandrorios.teamdetails.data.repository
 
-import com.alejandrorios.core.models.TeamEventData
-import com.alejandrorios.core.repositories.TeamEventsRepository
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.repository.TeamEventsRepository
 import com.alejandrorios.teamdetails.data.mapper.APITeamEventMapper
 import com.alejandrorios.teamdetails.data.service.GetTeamEventsService
 

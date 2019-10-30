@@ -1,4 +1,4 @@
-package com.alejandrorios.core.models
+package com.alejandrorios.login.domain.models
 
 import com.google.gson.annotations.SerializedName
 

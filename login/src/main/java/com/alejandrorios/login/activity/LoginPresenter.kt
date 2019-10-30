@@ -2,7 +2,7 @@ package com.alejandrorios.login.activity
 
 import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.models.TokenData
+import com.alejandrorios.login.domain.models.TokenData
 import com.alejandrorios.login.R
 import com.alejandrorios.login.data.entities.APILoginParams
 import kotlinx.coroutines.Job

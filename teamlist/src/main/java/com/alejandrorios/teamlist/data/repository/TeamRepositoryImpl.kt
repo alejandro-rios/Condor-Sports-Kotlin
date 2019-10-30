@@ -1,9 +1,9 @@
 package com.alejandrorios.teamlist.data.repository
 
-import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.core.repositories.TeamRepository
 import com.alejandrorios.teamlist.data.mapper.APITeamMapper
 import com.alejandrorios.teamlist.data.service.GetTeamService
+import com.alejandrorios.teamlist.domain.models.TeamData
+import com.alejandrorios.teamlist.domain.repository.TeamRepository
 
 /**
  * Created by Alejandro Rios on 2019-10-24
@@ -14,10 +14,10 @@ class TeamRepositoryImpl(
 ) : TeamRepository {
 
     override suspend fun getTeamsList(codeLeague: String): List<TeamData> {
-        val apiTeams = getTeamService.getTeams(codeLeague)
+        val apiTeamsResult = getTeamService.getTeams(codeLeague)
 
-        return apiTeams.teams!!.map { apiTeamData ->
-            apiTeamMapper.map(apiTeamData)
+        return apiTeamsResult.teams!!.map { apiTeams ->
+            apiTeamMapper.map(apiTeams)
         }
     }
 }

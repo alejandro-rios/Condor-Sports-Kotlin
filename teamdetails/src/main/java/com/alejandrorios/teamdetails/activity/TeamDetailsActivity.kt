@@ -16,8 +16,8 @@ import com.airbnb.deeplinkdispatch.DeepLink
 import com.alejandrorios.core.constants.ARGUMENT_TEAM_DETAILS
 import com.alejandrorios.core.constants.StringResourceId
 import com.alejandrorios.core.constants.TEAM_DETAILS_DEEP_LINK
-import com.alejandrorios.core.models.TeamEventData
-import com.alejandrorios.core.models.ViewTeamData
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
+import com.alejandrorios.core.viewmodels.ViewTeamData
 import com.alejandrorios.teamdetails.R
 import com.alejandrorios.teamdetails.base.BaseTeamDetailsActivity
 import com.alejandrorios.teamdetails.di.TeamDetailsComponent

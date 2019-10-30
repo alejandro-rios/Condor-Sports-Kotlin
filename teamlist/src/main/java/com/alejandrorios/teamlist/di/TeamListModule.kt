@@ -4,13 +4,13 @@ import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.constants.BASE_RETROFIT
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.mapper.ViewTeamsMapper
-import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.core.repositories.TeamRepository
 import com.alejandrorios.teamlist.data.mapper.APITeamMapper
 import com.alejandrorios.teamlist.data.repository.TeamRepositoryImpl
 import com.alejandrorios.teamlist.data.service.GetTeamService
-import com.alejandrorios.teamlist.domain.GetTeamsInteractor
+import com.alejandrorios.teamlist.domain.interactor.GetTeamsInteractor
+import com.alejandrorios.teamlist.domain.mapper.ViewTeamsMapper
+import com.alejandrorios.teamlist.domain.models.TeamData
+import com.alejandrorios.teamlist.domain.repository.TeamRepository
 import com.alejandrorios.teamlist.fragment.TeamListContract
 import com.alejandrorios.teamlist.fragment.TeamListPresenter
 import dagger.Module
@@ -35,7 +35,7 @@ class TeamListModule {
     }
 
     @Provides
-    fun provideGetTeamsInterator(teamRepository: TeamRepository): Interactor<List<TeamData>, String> {
+    fun provideGetTeamsInteractor(teamRepository: TeamRepository): Interactor<List<TeamData>, String> {
         return GetTeamsInteractor(teamRepository)
     }
 
@@ -44,6 +44,9 @@ class TeamListModule {
         getTeamListInteractor: Interactor<List<TeamData>, String>,
         @Named(COROUTINE_IO_CONTEXT_PROVIDER) coroutineContextProvider: CoroutineContextProvider
     ): TeamListContract.Presenter {
-        return TeamListPresenter(getTeamListInteractor, ViewTeamsMapper, coroutineContextProvider)
+        return TeamListPresenter(
+            getTeamListInteractor,
+            ViewTeamsMapper, coroutineContextProvider
+        )
     }
 }

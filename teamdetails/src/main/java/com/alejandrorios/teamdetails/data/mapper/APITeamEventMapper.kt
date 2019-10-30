@@ -1,6 +1,6 @@
 package com.alejandrorios.teamdetails.data.mapper
 
-import com.alejandrorios.core.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
 import com.alejandrorios.teamdetails.data.entities.APITeamEventData
 
 /**

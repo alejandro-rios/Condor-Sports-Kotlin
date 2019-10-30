@@ -1,9 +1,13 @@
-package com.alejandrorios.core.models
+package com.alejandrorios.core.viewmodels
+
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by Alejandro Rios on 2019-10-23
  */
-data class TeamData(
+@Parcelize
+data class ViewTeamData(
     var idTeam: String? = null,
     var strTeam: String? = null,
     var strAlternate: String? = null,
@@ -17,4 +21,4 @@ data class TeamData(
     var strTeamBadge: String? = null,
     var strTeamJersey: String? = null,
     var strYoutube: String? = null
-)
+): Parcelable

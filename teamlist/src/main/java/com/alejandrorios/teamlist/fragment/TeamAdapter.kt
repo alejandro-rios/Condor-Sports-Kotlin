@@ -3,8 +3,8 @@ package com.alejandrorios.teamlist.fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alejandrorios.core.models.TeamData
 import com.alejandrorios.teamlist.R
+import com.alejandrorios.teamlist.domain.models.TeamData
 
 /**
  * Created by Alejandro Rios on 2019-10-24
