@@ -1,12 +1,10 @@
 package com.alejandrorios.teamdetails.activity
 
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.alejandrorios.core.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
 import com.alejandrorios.teamdetails.R
-import kotlinx.android.synthetic.main.event_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 

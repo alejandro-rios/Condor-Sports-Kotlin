@@ -16,11 +16,11 @@ import com.alejandrorios.core.constants.ARGUMENT_TEAM_DETAILS
 import com.alejandrorios.core.constants.StringResourceId
 import com.alejandrorios.core.constants.TEAM_DETAILS_DEEP_LINK
 import com.alejandrorios.core.extensions.startDeepLinkIntent
-import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.core.models.ViewTeamData
+import com.alejandrorios.core.viewmodels.ViewTeamData
 import com.alejandrorios.teamlist.R
 import com.alejandrorios.teamlist.base.BaseTeamListFragment
 import com.alejandrorios.teamlist.di.TeamListComponent
+import com.alejandrorios.teamlist.domain.models.TeamData
 import com.alejandrorios.teamlist.utils.*
 import com.leinardi.android.speeddial.SpeedDialActionItem
 import kotlinx.android.synthetic.main.fragment_team_list.*

@@ -2,8 +2,8 @@ package com.alejandrorios.teamlist.fragment
 
 import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.mapper.ViewTeamsMapper
-import com.alejandrorios.core.models.TeamData
+import com.alejandrorios.teamlist.domain.mapper.ViewTeamsMapper
+import com.alejandrorios.teamlist.domain.models.TeamData
 import com.alejandrorios.teamlist.utils.SPANISH_LEAGUE_CODE
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext

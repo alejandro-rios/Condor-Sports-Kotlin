@@ -4,14 +4,14 @@ import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.constants.BASE_RETROFIT
 import com.alejandrorios.core.constants.COROUTINE_IO_CONTEXT_PROVIDER
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.models.TeamEventData
-import com.alejandrorios.core.repositories.TeamEventsRepository
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.repository.TeamEventsRepository
 import com.alejandrorios.teamdetails.activity.TeamDetailsContract
 import com.alejandrorios.teamdetails.activity.TeamDetailsPresenter
 import com.alejandrorios.teamdetails.data.mapper.APITeamEventMapper
 import com.alejandrorios.teamdetails.data.repository.TeamEventsRepositoryImpl
 import com.alejandrorios.teamdetails.data.service.GetTeamEventsService
-import com.alejandrorios.teamdetails.domain.GetTeamEventsInteractor
+import com.alejandrorios.teamdetails.domain.interactor.GetTeamEventsInteractor
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -35,7 +35,9 @@ class TeamDetailsModule {
 
     @Provides
     fun provideGetTeamDetailsInteractor(teamEventsRepository: TeamEventsRepository): Interactor<List<TeamEventData>, String> {
-        return GetTeamEventsInteractor(teamEventsRepository)
+        return GetTeamEventsInteractor(
+            teamEventsRepository
+        )
     }
 
     @Provides

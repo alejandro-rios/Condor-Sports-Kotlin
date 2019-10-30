@@ -3,8 +3,8 @@ package com.alejandrorios.teamlist.fragment
 import com.alejandrorios.core.constants.StringResourceId
 import com.alejandrorios.core.contract.BasePresenter
 import com.alejandrorios.core.contract.BaseView
-import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.core.models.ViewTeamData
+import com.alejandrorios.core.viewmodels.ViewTeamData
+import com.alejandrorios.teamlist.domain.models.TeamData
 import com.leinardi.android.speeddial.SpeedDialView
 
 /**

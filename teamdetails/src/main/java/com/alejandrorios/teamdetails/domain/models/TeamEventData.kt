@@ -1,4 +1,4 @@
-package com.alejandrorios.core.models
+package com.alejandrorios.teamdetails.domain.models
 
 /**
  * Created by Alejandro Rios on 2019-10-26

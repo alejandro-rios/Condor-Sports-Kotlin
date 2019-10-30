@@ -1,8 +1,8 @@
-package com.alejandrorios.teamdetails.domain
+package com.alejandrorios.teamdetails.domain.interactor
 
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.models.TeamEventData
-import com.alejandrorios.core.repositories.TeamEventsRepository
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.repository.TeamEventsRepository
 
 /**
  * Created by Alejandro Rios on 2019-10-27

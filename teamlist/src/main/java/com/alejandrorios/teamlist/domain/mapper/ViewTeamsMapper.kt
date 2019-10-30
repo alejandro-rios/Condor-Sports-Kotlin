@@ -1,7 +1,7 @@
-package com.alejandrorios.core.mapper
+package com.alejandrorios.teamlist.domain.mapper
 
-import com.alejandrorios.core.models.TeamData
-import com.alejandrorios.core.models.ViewTeamData
+import com.alejandrorios.core.viewmodels.ViewTeamData
+import com.alejandrorios.teamlist.domain.models.TeamData
 
 /**
  * Created by Alejandro Rios on 2019-10-23

@@ -1,6 +1,6 @@
 package com.alejandrorios.login
 
-import com.alejandrorios.core.models.LoginParams
+import com.alejandrorios.login.domain.models.LoginParams
 import com.alejandrorios.login.data.entities.APILoginParams
 import com.alejandrorios.login.data.entities.APIToken
 import com.alejandrorios.login.data.mapper.APITokenMapper
@@ -49,7 +49,12 @@ class LoginRepositoryTest : MockableTest {
 
         val result = whenever {
             runBlocking {
-                repository.login(LoginParams(apiLoginParams.userName, apiLoginParams.password))
+                repository.login(
+                    LoginParams(
+                        apiLoginParams.userName,
+                        apiLoginParams.password
+                    )
+                )
             }
         }
 

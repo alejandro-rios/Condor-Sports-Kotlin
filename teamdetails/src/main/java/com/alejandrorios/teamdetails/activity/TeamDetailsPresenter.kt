@@ -2,8 +2,8 @@ package com.alejandrorios.teamdetails.activity
 
 import com.alejandrorios.core.CoroutineContextProvider
 import com.alejandrorios.core.interactor.Interactor
-import com.alejandrorios.core.models.TeamEventData
-import com.alejandrorios.core.models.ViewTeamData
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
+import com.alejandrorios.core.viewmodels.ViewTeamData
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext
 

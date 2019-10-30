@@ -3,7 +3,7 @@ package com.alejandrorios.teamdetails.activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alejandrorios.core.models.TeamEventData
+import com.alejandrorios.teamdetails.domain.models.TeamEventData
 import com.alejandrorios.teamdetails.R
 
 /**
