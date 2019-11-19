@@ -5,11 +5,12 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
-    defaultConfig{
+    defaultConfig {
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -37,11 +38,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def androidDependencies = rootProject.ext.androidDependencies
-    def acceptanceTesting = rootProject.ext.acceptanceTesting
     def applicationDependencies = rootProject.ext.mainApplication
     def testDependencies = rootProject.ext.unitTesting
     def networkingDependencies = rootProject.ext.networking
-    def developmentDependencies = rootProject.ext.development
 
     // Support libraries
     implementation androidDependencies.appCompat
