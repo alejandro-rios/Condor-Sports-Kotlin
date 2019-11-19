@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Team Details</string>
+    <string name="team_vs">VS</string>
+
+    <string name="team_formed_year_title">Team formed year</string>
+
+    <string name="team_details_jersey_title">Official Jersey</string>
+    <string name="team_details_description_title">Description</string>
+    <string name="team_details_upcoming_events_title">Upcoming events</string>
+    <string name="team_details_no_web">Website Link unavailable</string>
+    <string name="team_details_no_facebook">Facebook Link unavailable</string>
+    <string name="team_details_no_twitter">Twitter Link unavailable</string>
+    <string name="team_details_no_instagram">Instagram Link unavailable</string>
+    <string name="team_details_no_youtube">YouTube Link unavailable</string>
+</resources>
