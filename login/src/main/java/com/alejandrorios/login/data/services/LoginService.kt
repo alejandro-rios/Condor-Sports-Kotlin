@@ -1,7 +1,7 @@
 package com.alejandrorios.login.data.services
 
 import com.alejandrorios.login.data.entities.APIToken
-import retrofit2.http.Body
+import com.alejandrorios.login.utils.LOGIN_ENDPOINT
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -12,6 +12,6 @@ import retrofit2.http.POST
 interface LoginService {
 
     @FormUrlEncoded
-    @POST("oauth2/token")
+    @POST(LOGIN_ENDPOINT)
     suspend fun login(@FieldMap apiLoginParams: Map<String, String>): APIToken
 }

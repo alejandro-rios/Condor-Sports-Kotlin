@@ -54,7 +54,7 @@ dependencies {
     //Test
     testImplementation testDependencies.mockk
     testImplementation testDependencies.mockitoCore
-    testImplementation testDependencies.junit
+    testImplementation testDependencies.jUnit
     testImplementation testDependencies.kluent
     testImplementation acceptanceTesting.mockWebServer
 

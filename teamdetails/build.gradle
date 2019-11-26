@@ -16,4 +16,6 @@ dependencies {
 
     // UI
     implementation applicationDependencies.coil
+
+    implementation project(path: ':core')
 }

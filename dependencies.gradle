@@ -11,47 +11,51 @@ allprojects {
 
 ext {
 
-    //Android - Support
+    // Android - Support
     appCompat_version = "28.0.0"
     archComponents_version = "1.1.1"
     constraintlayout_version = "1.1.3"
     android_support_version = "28.0.0"
 
-    //Android X
+    // Android X
     android_x_appCompat_version = "1.0.0"
     android_x_test_runner_version = "1.1.1"
+    android_x_test_truth_version = "1.0.0"
     android_x_espresso_version = "3.2.0"
     android_x_annotations_version = "1.0.0"
     android_x_ui_automator_version = "2.2.0"
-    android_x_room_version = "2.0.0"
+    android_x_room_version = "2.1.0"
+    android_x_multidex_version = "2.0.0"
 
-    //UI Mix
+    // UI Mix
     coil_version = "0.8.0"
     speed_dial_version = "3.1.1"
 
-    //Core Mix
+    // Core Mix
     kotlin_coroutines_version = "1.2.2"
     dagger_version = "2.24"
     deeplink_distpatch_version = "4.1.0"
+    joda_time_version = "2.10.5"
 
-    //Networking
+    // Networking
     gson_version = "2.8.5"
     okhttp_logging_interceptor_version = "4.2.1"
     okhttp3_version = "4.2.1"
     retrofit_version = "2.6.1"
     retrofit_interceptor = "3.14.0"
 
-    //Testing
+    // Testing
     mockk_version = "1.9.1"
-    mockito_core_version = "2.21.0"
+    mockito_core_version = "3.1.0"
     runner_version = "1.0.2"
     espresso_version = "3.0.2"
-    robolectric_version = "3.8"
+    robolectric_version = "4.3.1"
     junit_version = "4.12"
     mockito_version = "1.4.0"
     kluent_version = "1.56"
     mockWebServer_version = "4.2.1"
     testRunnerVersion = "1.0.2"
+    espresso_version = "3.0.2"
     espresso_version = "3.0.2"
 
     androidDependencies = [
@@ -68,7 +72,7 @@ ext {
             preferenceV7          : "androidx.preference:preference:$android_x_appCompat_version",
             preferenceV14         : "androidx.legacy:legacy-preference-v14:$android_x_appCompat_version",
             customTabs            : "androidx.browser:browser:$android_x_appCompat_version",
-            multidex              : "androidx.multidex:multidex:2.0.0",
+            multidex              : "androidx.multidex:multidex:$android_x_multidex_version",
     ]
 
     mainApplication = [
@@ -80,7 +84,7 @@ ext {
             dagger                 : "com.google.dagger:dagger:$dagger_version",
             daggerAndroidProcessor : "com.google.dagger:dagger-android-processor:$dagger_version",
             daggerAndroidSupport   : "com.google.dagger:dagger-android-support:$dagger_version",
-            jodaTime               : "joda-time:joda-time:2.10",
+            jodaTime               : "joda-time:joda-time:$joda_time_version",
             gson                   : "com.google.code.gson:gson:$gson_version",
             coil                   : "io.coil-kt:coil:$coil_version",
             speedDial              : "com.leinardi.android:speed-dial:$speed_dial_version",
@@ -99,20 +103,22 @@ ext {
             kotlin     : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             kotlinTest : "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
             robolectric: "org.robolectric:robolectric:$robolectric_version",
-            junit      : "junit:junit:$junit_version",
+            jUnit      : "junit:junit:$junit_version",
             mockito    : "com.nhaarman:mockito-kotlin:$mockito_version",
             kluent     : "org.amshove.kluent:kluent:$kluent_version",
             mockitoCore: "org.mockito:mockito-core:$mockito_core_version",
-            mockk      : "io.mockk:mockk:1.9.1",
+            mockk      : "io.mockk:mockk:$mockk_version",
     ]
 
     acceptanceTesting = [
             testRunner        : "androidx.test:runner:$android_x_test_runner_version",
             testRules         : "androidx.test:rules:$android_x_test_runner_version",
+            testTruth         : "androidx.test.ext:truth:$android_x_test_truth_version",
             espressoContrib   : "androidx.test.espresso:espresso-contrib:$android_x_espresso_version",
             espressoCore      : "androidx.test.espresso:espresso-core:$android_x_espresso_version",
             espressoIntents   : "androidx.test.espresso:espresso-intents:$android_x_espresso_version",
             androidAnnotations: "androidx.annotation:annotation:$android_x_annotations_version",
+            jUnitExt          : "androidx.test.ext:junit:$android_x_test_runner_version",
             mockWebServer     : "com.squareup.okhttp3:mockwebserver:$mockWebServer_version",
             uiAutomator       : "androidx.test.uiautomator:uiautomator:$android_x_ui_automator_version",
             daggerMock        : "com.github.fabioCollini.daggermock:daggermock:0.8.4"

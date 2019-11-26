@@ -44,10 +44,10 @@ class GetTeamEventsServiceTest : MockServerTest {
     @Test
     fun `should get team events`(){
         val service = given {
-            networkModule.provideRetrofit(
+            networkModule.provideBaseRetrofit(
                 mockServer.url(" ").toString(),
                 networkModule.providerGsonConverter(),
-                networkModule.provideHttpClient(networkModule.provideLogginInterceptor())
+                networkModule.provideHttpClient(networkModule.provideLoggingInterceptor())
             ).create(GetTeamEventsService::class.java)
         }
 

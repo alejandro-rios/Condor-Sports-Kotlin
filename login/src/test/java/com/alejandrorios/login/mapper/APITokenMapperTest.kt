@@ -1,7 +1,10 @@
-package com.alejandrorios.login
+package com.alejandrorios.login.mapper
 
 import com.alejandrorios.login.data.entities.APIToken
 import com.alejandrorios.login.data.mapper.APITokenMapper
+import com.alejandrorios.login.given
+import com.alejandrorios.login.then
+import com.alejandrorios.login.whenever
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
 

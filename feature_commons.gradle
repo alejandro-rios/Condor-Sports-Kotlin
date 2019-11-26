@@ -25,12 +25,27 @@ android {
         }
     }
 
-    testOptions.unitTests.includeAndroidResources = true
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+        disable 'GradleCompatible'
+    }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            includeAndroidResources true
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+androidExtensions {
+    experimental = true
 }
 
 dependencies {
@@ -40,6 +55,9 @@ dependencies {
     def testDependencies = rootProject.ext.unitTesting
     def networkingDependencies = rootProject.ext.networking
 
+    // Kotlin
+    implementation applicationDependencies.kotlinJDK
+
     // Support libraries
     implementation androidDependencies.appCompat
     implementation androidDependencies.design
@@ -48,11 +66,6 @@ dependencies {
     implementation androidDependencies.appCompatV7
     implementation androidDependencies.preferenceV7
     implementation androidDependencies.preferenceV14
-    implementation androidDependencies.customTabs
-    implementation androidDependencies.multidex
-
-    // Kotlin
-    implementation applicationDependencies.kotlinJDK
 
     // UI
     implementation applicationDependencies.deeplinkDispatch
@@ -74,19 +87,26 @@ dependencies {
     implementation networkingDependencies.okhttp3
     implementation networkingDependencies.okhttpLoggingInterceptor
 
-    //Test
+    // Test
     testImplementation testDependencies.mockk
     testImplementation testDependencies.mockitoCore
-    testImplementation testDependencies.junit
+    testImplementation testDependencies.jUnit
     testImplementation testDependencies.kluent
     testImplementation acceptanceTesting.mockWebServer
+    testImplementation acceptanceTesting.espressoIntents
+    testImplementation acceptanceTesting.testTruth
+    testImplementation acceptanceTesting.espressoCore
+    testImplementation acceptanceTesting.testRunner
+    testImplementation acceptanceTesting.jUnitExt
+    testImplementation testDependencies.robolectric
 
-    //Acceptance Testing
+    // Acceptance Testing
     androidTestImplementation acceptanceTesting.androidAnnotations
     androidTestImplementation acceptanceTesting.mockWebServer
-    androidTestImplementation acceptanceTesting.testRunner
     androidTestImplementation acceptanceTesting.testRules
     androidTestImplementation acceptanceTesting.espressoCore
+    androidTestImplementation acceptanceTesting.testRunner
+    androidTestImplementation acceptanceTesting.jUnitExt
     androidTestImplementation acceptanceTesting.espressoContrib
     androidTestImplementation acceptanceTesting.espressoIntents
     androidTestImplementation acceptanceTesting.uiAutomator

@@ -61,10 +61,6 @@
         <item name="colorPrimary">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.Launcher" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_background</item>
-    </style>
-
     <style name="TextDetailsTitle" parent="">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:textSize">18sp</item>

@@ -32,7 +32,6 @@ android {
 androidExtensions {
     experimental = true
 }
-kapt { generateStubs = true }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -42,6 +41,9 @@ dependencies {
     def testDependencies = rootProject.ext.unitTesting
     def networkingDependencies = rootProject.ext.networking
 
+    // Kotlin
+    implementation applicationDependencies.kotlinJDK
+
     // Support libraries
     implementation androidDependencies.appCompat
     implementation androidDependencies.appCompatV4
@@ -49,9 +51,6 @@ dependencies {
     implementation androidDependencies.preferenceV7
     implementation androidDependencies.preferenceV14
     implementation androidDependencies.multidex
-
-    // Kotlin
-    implementation applicationDependencies.kotlinJDK
 
     // Dagger
     implementation applicationDependencies.dagger
@@ -69,11 +68,10 @@ dependencies {
     implementation networkingDependencies.okhttp3
     implementation networkingDependencies.okhttpLoggingInterceptor
 
+    // Test
     testImplementation testDependencies.kluent
-
-    //Test
     testImplementation testDependencies.mockk
     testImplementation testDependencies.mockitoCore
-    testImplementation testDependencies.junit
+    testImplementation testDependencies.jUnit
 }
 

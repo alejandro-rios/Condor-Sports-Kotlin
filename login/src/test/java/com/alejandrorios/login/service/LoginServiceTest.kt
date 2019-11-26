@@ -1,9 +1,12 @@
-package com.alejandrorios.login
+package com.alejandrorios.login.service
 
 import com.alejandrorios.core.di.NetworkModule
-import com.alejandrorios.login.data.entities.APILoginParams
+import com.alejandrorios.login.MockServerTest
 import com.alejandrorios.login.data.entities.APIToken
 import com.alejandrorios.login.data.services.LoginService
+import com.alejandrorios.login.given
+import com.alejandrorios.login.then
+import com.alejandrorios.login.whenever
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -19,9 +22,10 @@ class LoginServiceTest : MockServerTest {
     override lateinit var mockWebServer: MockWebServer
 
     private val networkModule = NetworkModule()
-    private val apiLoginParams = APILoginParams(
-        "RN99999999",
-        "welcome"
+    private val apiLoginParamsMap = mapOf(
+        "username" to "RN99999999",
+        "password" to "password",
+        "grant_type" to "password"
     )
 
     @Before
@@ -44,16 +48,16 @@ class LoginServiceTest : MockServerTest {
     @Test
     fun `should do login`() {
         val service = given {
-            networkModule.provideRetrofit(
+            networkModule.provideMobileRetrofit(
                 mockWebServer.url(" ").toString(),
                 networkModule.providerGsonConverter(),
-                networkModule.provideHttpClient(networkModule.provideLogginInterceptor())
+                networkModule.provideHttpClient(networkModule.provideLoggingInterceptor())
             ).create(LoginService::class.java)
         }
 
         val result = whenever {
             runBlocking {
-                service.login(apiLoginParams)
+                service.login(apiLoginParamsMap)
             }
         }
 
