@@ -1,10 +1,10 @@
 package com.alejandrorios.login.domain.interactor
 
 import com.alejandrorios.core.interactor.Interactor
+import com.alejandrorios.login.data.entities.APILoginParams
 import com.alejandrorios.login.domain.models.LoginParams
 import com.alejandrorios.login.domain.models.TokenData
 import com.alejandrorios.login.domain.repository.LoginRepository
-import com.alejandrorios.login.data.entities.APILoginParams
 
 /**
  * Created by Alejandro Rios on 2019-10-28

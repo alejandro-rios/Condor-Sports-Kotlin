@@ -1,7 +1,7 @@
 package com.alejandrorios.login.data.mapper
 
-import com.alejandrorios.login.domain.models.TokenData
 import com.alejandrorios.login.data.entities.APIToken
+import com.alejandrorios.login.domain.models.TokenData
 
 /**
  * Created by Alejandro Rios on 2019-10-28

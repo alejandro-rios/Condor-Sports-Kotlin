@@ -1,7 +1,7 @@
 package com.alejandrorios.core.di
 
 import android.content.Context
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import com.alejandrorios.core.repositories.LocalStorageRepository
 import com.alejandrorios.core.repositories.LocalStorageRepositoryImpl
 import dagger.Module

@@ -1,9 +1,6 @@
 package com.alejandrorios.teamlist
 
-import com.alejandrorios.core.given
-import com.alejandrorios.core.then
 import com.alejandrorios.core.viewmodels.ViewTeamData
-import com.alejandrorios.core.whenever
 import com.alejandrorios.teamlist.domain.mapper.ViewTeamsMapper
 import com.alejandrorios.teamlist.domain.models.TeamData
 import org.amshove.kluent.shouldEqual

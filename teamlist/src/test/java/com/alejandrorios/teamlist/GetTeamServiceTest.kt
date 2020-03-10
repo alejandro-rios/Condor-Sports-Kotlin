@@ -50,10 +50,10 @@ class GetTeamServiceTest : MockServerTest {
     @Test
     fun `should get Teams`() {
         val service = given {
-            networkModule.provideRetrofit(
+            networkModule.provideBaseRetrofit(
                 mockserver.url(" ").toString(),
                 networkModule.providerGsonConverter(),
-                networkModule.provideHttpClient(networkModule.provideLogginInterceptor())
+                networkModule.provideHttpClient(networkModule.provideLoggingInterceptor())
             ).create(GetTeamService::class.java)
         }
 
